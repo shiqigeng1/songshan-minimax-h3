@@ -1,0 +1,33 @@
+{
+  "evidence_source": "user_pasted_cpu_diagnostic_output",
+  "input_sha256": "b97c3487ca35da0c803fba3787cf2b7f936d3d4595548ae5b7b576c19934be54",
+  "input_matches_extracted_template_png": true,
+  "sample_indexes": [
+    0,
+    62,
+    123
+  ],
+  "old_vs_candidate_rgb_mae": {
+    "0": 38.131418,
+    "62": 21.085294,
+    "123": 28.167929
+  },
+  "all_three_sampled_frames_differ": true,
+  "visible_logs_same_model_path_prompt_frame_count_steps": true,
+  "seed_or_initial_noise_directly_verified_by_this_output": false,
+  "current_server_source_two_at_addcmul_calls_observed": true,
+  "current_server_source_contains_tensor_dot_tensor_api": true,
+  "loaded_binary_to_current_source_mapping_verified": false,
+  "at_addcmul_established_as_root_cause": false,
+  "preview_visually_reviewed": true,
+  "remote_directory": "<H3_WORK_HOME>/checks/fl2va-diagnose-20261111T134713Z-1034303",
+  "next_comparison": "Existing Nov09 native baseline versus existing PyTorch reference; no model generation required.",
+  "preview_local_path": "C:/嵩山杯赛题一/jpg/preview.jpg",
+  "visual_observations": {
+    "reference": "Dog visible at frame 0 and lowers its head at frames 62/123.",
+    "candidate": "Checkerboard-like diagonal texture at all three sampled frames; dog not visible.",
+    "old_native": "Checkerboard-like diagonal texture at all three sampled frames; dog not visible.",
+    "conclusion": "Native model generation correctness is unresolved; container/spec success is insufficient.",
+    "root_cause_established": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "evidence_source": "user_pasted_original_comparison_output",
+  "task": "fl2va",
+  "comparison_completed": true,
+  "reference_video": "outputs/fl2va-reference-20261111T105437Z.mp4",
+  "candidate_video": "outputs/fl2va-candidate-20261111T085622Z.mp4",
+  "size_pass": true,
+  "reference_size": [768, 928],
+  "candidate_size": [768, 928],
+  "length_pass": true,
+  "reference_decoded_frames": 124,
+  "candidate_decoded_frames": 124,
+  "average_ssim_percent_printed": 8.997,
+  "unrounded_ssim_available": false,
+  "published_similarity_pass_threshold_available": false,
+  "similarity_acceptance_established": false,
+  "remote_result_directory": "<H3_WORK_HOME>/checks/fl2va-compare-20261111T133733Z-1034319",
+  "next_action": "Inspect sampled frames and generation logs; compare the earlier native baseline with the current candidate before changing model code."
+}

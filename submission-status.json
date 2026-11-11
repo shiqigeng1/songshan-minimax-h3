@@ -1,0 +1,15 @@
+{
+  "team": "究竟对不队",
+  "github_owner": "shiqigeng1",
+  "status": "PRELIMINARY_SUBMISSION_WITH_KNOWN_LIMITATIONS",
+  "model_quality_validated": false,
+  "actual_afs_source_imported": false,
+  "clean_rebuild_verified": false,
+  "members": null,
+  "phone": null,
+  "repository_url": "https://github.com/shiqigeng1/songshan-minimax-h3",
+  "submission_tag": "prelim-20261111",
+  "packaging": "expanded_sources_no_archives",
+  "new_build_workflow_device_verified": false,
+  "repository_created": true
+}

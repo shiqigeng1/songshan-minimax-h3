@@ -1,0 +1,48 @@
+[environment] {'diagnostic_only': True, 'model_quality_validated': False, 'torch': '2.9.0', 'hip': '6.3.26093', 'device': 'BW', 'cases': [], 'python_dependencies': {'diffusers': '0.40.0', 'transformers': '5.14.1', 'accelerate': '1.13.0'}}
+[extension] {'path': '<H3_WORK_HOME>/runtime-gfx936/python/infinilm/lib/_infinilm.cpython-311-x86_64-linux-gnu.so', 'sha256': 'eaf688defefdf6c20bf755c0d32ce1499e0d964d900393adfb41a5a56306c0d0'}
+[bridge_source] {'path': '<H3_WORK_HOME>/runtime-gfx936/python/infinilm/multimodal/minimax_h3.py', 'sha256': '5e5fc07bf0c02925c553603285fd163c44c973eb6c3de71349cf6c7677e3e4e5'}
+[RUN] roundtrip torch.float32 False
+[numeric] {"name": "roundtrip/torch.float32/noncontiguous=False", "shape": [1, 16, 96], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 886.3770141601562, "passed": true}
+[RUN] roundtrip torch.float32 True
+[numeric] {"name": "roundtrip/torch.float32/noncontiguous=True", "shape": [1, 96, 16], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 886.3770141601562, "passed": true}
+[RUN] linear torch.float32 32 96 5376
+[numeric] {"name": "linear/torch.float32/32x96->5376", "shape": [1, 32, 5376], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0001, "rtol": 0.0001, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.19977132976055145, "passed": true}
+[RUN] linear torch.float32 2048 96 5376
+[numeric] {"name": "linear/torch.float32/2048x96->5376", "shape": [1, 2048, 5376], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0001, "rtol": 0.0001, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.19728834927082062, "passed": true}
+[RUN] linear torch.float32 32 5376 96
+[numeric] {"name": "linear/torch.float32/32x5376->96", "shape": [1, 32, 96], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0001, "rtol": 0.0001, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 1.4522790908813477, "passed": true}
+[RUN] rms_norm torch.float32 128
+[numeric] {"name": "rms_norm/torch.float32/128", "shape": [1, 32, 128], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0001, "rtol": 0.0001, "max_abs": 4.76837158203125e-07, "rmse": 5.691413917929822e-08, "reference_rms": 1.0074946880340576, "passed": true}
+[RUN] rms_norm torch.float32 5376
+[numeric] {"name": "rms_norm/torch.float32/5376", "shape": [1, 32, 5376], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0001, "rtol": 0.0001, "max_abs": 7.152557373046875e-07, "rmse": 8.405156393109792e-08, "reference_rms": 1.0016251802444458, "passed": true}
+[RUN] packed_rows torch.float32
+[numeric] {"name": "index_copy/torch.float32", "shape": [1, 13, 96], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.549736499786377, "passed": true}
+[numeric] {"name": "embedding/torch.float32", "shape": [4, 96], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 1.0675687789916992, "passed": true}
+[RUN] attention torch.float32 False
+<stdin>:119: UserWarning: 1Torch was not compiled with memory efficient attention. (Triggered internally at /home/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:790.)
+[numeric] {"name": "mha/torch.float32/causal=False", "shape": [1, 181, 7, 128], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0003, "rtol": 0.0003, "max_abs": 2.5033950805664062e-06, "rmse": 7.036609162014429e-08, "reference_rms": 0.1210034191608429, "passed": true}
+[RUN] attention torch.float32 True
+[numeric] {"name": "mha/torch.float32/causal=True", "shape": [1, 181, 7, 128], "dtype": "torch.float32", "finite": true, "same_shape": true, "atol": 0.0003, "rtol": 0.0003, "max_abs": 1.3709068298339844e-06, "rmse": 9.381349030945785e-08, "reference_rms": 0.24442893266677856, "passed": true}
+[RUN] roundtrip torch.bfloat16 False
+[numeric] {"name": "roundtrip/torch.bfloat16/noncontiguous=False", "shape": [1, 16, 96], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 886.3806762695312, "passed": true}
+[RUN] roundtrip torch.bfloat16 True
+[numeric] {"name": "roundtrip/torch.bfloat16/noncontiguous=True", "shape": [1, 96, 16], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 886.3806762695312, "passed": true}
+[RUN] linear torch.bfloat16 32 96 5376
+[numeric] {"name": "linear/torch.bfloat16/32x96->5376", "shape": [1, 32, 5376], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.19667638838291168, "passed": true}
+[RUN] linear torch.bfloat16 2048 96 5376
+[numeric] {"name": "linear/torch.bfloat16/2048x96->5376", "shape": [1, 2048, 5376], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.1967051923274994, "passed": true}
+[RUN] linear torch.bfloat16 32 5376 96
+[numeric] {"name": "linear/torch.bfloat16/32x5376->96", "shape": [1, 32, 96], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 1.4487329721450806, "passed": true}
+[RUN] rms_norm torch.bfloat16 128
+[numeric] {"name": "rms_norm/torch.bfloat16/128", "shape": [1, 32, 128], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.9986070394515991, "passed": true}
+[RUN] rms_norm torch.bfloat16 5376
+[numeric] {"name": "rms_norm/torch.bfloat16/5376", "shape": [1, 32, 5376], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 1.0019327402114868, "passed": true}
+[RUN] packed_rows torch.bfloat16
+[numeric] {"name": "index_copy/torch.bfloat16", "shape": [1, 13, 96], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.5414898991584778, "passed": true}
+[numeric] {"name": "embedding/torch.bfloat16", "shape": [4, 96], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.0, "rtol": 0.0, "max_abs": 0.0, "rmse": 0.0, "reference_rms": 0.9972240328788757, "passed": true}
+[RUN] attention torch.bfloat16 False
+[numeric] {"name": "mha/torch.bfloat16/causal=False", "shape": [1, 181, 7, 128], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.01171875, "rmse": 0.0006888722418807447, "reference_rms": 0.12208378314971924, "passed": true}
+[RUN] attention torch.bfloat16 True
+[numeric] {"name": "mha/torch.bfloat16/causal=True", "shape": [1, 181, 7, 128], "dtype": "torch.bfloat16", "finite": true, "same_shape": true, "atol": 0.03, "rtol": 0.03, "max_abs": 0.015625, "rmse": 0.0010029521072283387, "reference_rms": 0.24120457470417023, "passed": true}
+[probe] DONE: failures=0; full_model_quality_validated=False
+[results] <H3_WORK_HOME>/checks/h3-core-numeric-20261111T141721Z-1257806

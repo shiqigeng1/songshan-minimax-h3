@@ -1,0 +1,138 @@
+{
+  "status": "PASS",
+  "backend": "native",
+  "mode": "validate",
+  "device": "Z200SM_80",
+  "arch": "gfx906:sramecc+:xnack-",
+  "torch": "2.9.0",
+  "block": 1024,
+  "warps": 4,
+  "dtype": "float32",
+  "iterations": 300,
+  "repeats": 11,
+  "torch_cpu_threads": 1,
+  "timestamp": "2026-10-27T19:36:47+0800",
+  "timing": "synchronized batched wall time; includes host dispatch; excludes allocation/preparation/JIT",
+  "cases": [
+    {
+      "key": "n1_d257_scale1",
+      "rows": 1,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 9.304400685010478,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n1_d257_scale10",
+      "rows": 1,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 0.00015060001169331372,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n1_d5376_scale1",
+      "rows": 1,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 0.00014956999802961946,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n1_d5376_scale10",
+      "rows": 1,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 0.00011282000923529267,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n4_d257_scale1",
+      "rows": 4,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 0.00011597000411711633,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n4_d257_scale10",
+      "rows": 4,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 0.00011274000280536711,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n4_d5376_scale1",
+      "rows": 4,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 0.0001174899807665497,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n4_d5376_scale10",
+      "rows": 4,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 0.00010766999912448227,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n17_d257_scale1",
+      "rows": 17,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 0.0001109000004362315,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n17_d257_scale10",
+      "rows": 17,
+      "channels": 257,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 9.72909911070019e-05,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n17_d5376_scale1",
+      "rows": 17,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 1.0,
+      "preparation_seconds": 0.0001111599849537015,
+      "max_abs_vs_torch": 2.384185791015625e-07,
+      "changed_input_pass": true
+    },
+    {
+      "key": "n17_d5376_scale10",
+      "rows": 17,
+      "channels": 5376,
+      "dtype": "float32",
+      "scale": 10.0,
+      "preparation_seconds": 0.00014222101890482008,
+      "max_abs_vs_torch": 9.5367431640625e-07,
+      "changed_input_pass": true
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "evidence_source": "user_pasted_dcu_execution_output",
+  "diagnostic_only": true,
+  "model_quality_validated": false,
+  "required_stages_complete": true,
+  "remote_directory": "<H3_WORK_HOME>/checks/h3-dit-paired-20261111T143714Z-1275606",
+  "scope": "Unchanged real DiT weights, shared synthetic length-104 input; reference, TP2, TP8 in separate processes",
+  "comparisons": [
+    {
+      "left": "native2.normal",
+      "right": "reference",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 2.046459197998047,
+      "rmse": 0.287793904542923,
+      "relative_rmse": 0.008245394565165043,
+      "equal": false
+    },
+    {
+      "left": "native2.normal",
+      "right": "reference",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 45.07420349121094,
+      "rmse": 8.40376091003418,
+      "relative_rmse": 0.024055512621998787,
+      "equal": false
+    },
+    {
+      "left": "native2.sync",
+      "right": "reference",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 2.046459197998047,
+      "rmse": 0.287793904542923,
+      "relative_rmse": 0.008245394565165043,
+      "equal": false
+    },
+    {
+      "left": "native2.sync",
+      "right": "reference",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 45.07420349121094,
+      "rmse": 8.40376091003418,
+      "relative_rmse": 0.024055512621998787,
+      "equal": false
+    },
+    {
+      "left": "native8.normal",
+      "right": "reference",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 2.1282501220703125,
+      "rmse": 0.3377300798892975,
+      "relative_rmse": 0.009676082991063595,
+      "equal": false
+    },
+    {
+      "left": "native8.normal",
+      "right": "reference",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 53.7462158203125,
+      "rmse": 8.922459602355957,
+      "relative_rmse": 0.025540271773934364,
+      "equal": false
+    },
+    {
+      "left": "native8.sync",
+      "right": "reference",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 2.1282501220703125,
+      "rmse": 0.3377300798892975,
+      "relative_rmse": 0.009676082991063595,
+      "equal": false
+    },
+    {
+      "left": "native8.sync",
+      "right": "reference",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 53.7462158203125,
+      "rmse": 8.922459602355957,
+      "relative_rmse": 0.025540271773934364,
+      "equal": false
+    },
+    {
+      "left": "native2.normal",
+      "right": "native2.repeat",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 2.7886195182800293,
+      "rmse": 0.3058823347091675,
+      "relative_rmse": 0.008771143853664398,
+      "equal": false
+    },
+    {
+      "left": "native2.normal",
+      "right": "native2.repeat",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 91.06588745117188,
+      "rmse": 10.454899787902832,
+      "relative_rmse": 0.029937738552689552,
+      "equal": false
+    },
+    {
+      "left": "native8.normal",
+      "right": "native8.repeat",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 8.659915924072266,
+      "rmse": 0.7138376235961914,
+      "relative_rmse": 0.020525190979242325,
+      "equal": false
+    },
+    {
+      "left": "native8.normal",
+      "right": "native8.repeat",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 75.024658203125,
+      "rmse": 10.751662254333496,
+      "relative_rmse": 0.030834415927529335,
+      "equal": false
+    },
+    {
+      "left": "native2.sync",
+      "right": "native8.sync",
+      "stream": "video",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 1.8562545776367188,
+      "rmse": 0.2818901240825653,
+      "relative_rmse": 0.008082032203674316,
+      "equal": false
+    },
+    {
+      "left": "native2.sync",
+      "right": "native8.sync",
+      "stream": "audio",
+      "same_shape": true,
+      "finite": true,
+      "max_abs": 53.76182174682617,
+      "rmse": 9.530351638793945,
+      "relative_rmse": 0.02737148106098175,
+      "equal": false
+    }
+  ],
+  "outputs": {
+    "reference": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6242502331733704,
+        "std": 34.90085220336914,
+        "rms": 34.903594970703125,
+        "first_values": [
+          10.820723533630371,
+          23.92289161682129,
+          -44.633758544921875,
+          2.0474629402160645,
+          -21.03586196899414,
+          -53.681697845458984,
+          -40.46577072143555,
+          -72.18730163574219
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -85.1703872680664,
+        "std": 338.9730224609375,
+        "rms": 349.3486633300781,
+        "first_values": [
+          -490.6915588378906,
+          -251.24888610839844,
+          374.2431335449219,
+          154.7694091796875,
+          233.54754638671875,
+          -1474.2103271484375,
+          243.04808044433594,
+          -243.664306640625
+        ]
+      }
+    },
+    "native2.normal": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6083348393440247,
+        "std": 34.884273529052734,
+        "rms": 34.886741638183594,
+        "first_values": [
+          10.714276313781738,
+          23.789146423339844,
+          -44.566898345947266,
+          2.072099447250366,
+          -21.098445892333984,
+          -53.328521728515625,
+          -40.23764419555664,
+          -71.8643798828125
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.75804901123047,
+        "std": 338.7598876953125,
+        "rms": 349.041748046875,
+        "first_values": [
+          -493.68133544921875,
+          -239.038818359375,
+          371.8651123046875,
+          152.5086212158203,
+          234.13616943359375,
+          -1461.454345703125,
+          236.8464813232422,
+          -242.76405334472656
+        ]
+      }
+    },
+    "native2.repeat": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6054601669311523,
+        "std": 34.87129211425781,
+        "rms": 34.87371063232422,
+        "first_values": [
+          10.722834587097168,
+          24.064037322998047,
+          -44.832576751708984,
+          1.985849380493164,
+          -21.33841896057129,
+          -53.83114242553711,
+          -40.2032585144043,
+          -71.91419982910156
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.91604614257812,
+        "std": 338.9056396484375,
+        "rms": 349.221435546875,
+        "first_values": [
+          -496.9638977050781,
+          -259.9885559082031,
+          370.0212097167969,
+          143.7917938232422,
+          228.259033203125,
+          -1426.0540771484375,
+          221.94741821289062,
+          -246.7117462158203
+        ]
+      }
+    },
+    "native2.sync": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6083348393440247,
+        "std": 34.884273529052734,
+        "rms": 34.886741638183594,
+        "first_values": [
+          10.714276313781738,
+          23.789146423339844,
+          -44.566898345947266,
+          2.072099447250366,
+          -21.098445892333984,
+          -53.328521728515625,
+          -40.23764419555664,
+          -71.8643798828125
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.75804901123047,
+        "std": 338.7598876953125,
+        "rms": 349.041748046875,
+        "first_values": [
+          -493.68133544921875,
+          -239.038818359375,
+          371.8651123046875,
+          152.5086212158203,
+          234.13616943359375,
+          -1461.454345703125,
+          236.8464813232422,
+          -242.76405334472656
+        ]
+      }
+    },
+    "native8.normal": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6102411150932312,
+        "std": 34.87611770629883,
+        "rms": 34.87862014770508,
+        "first_values": [
+          10.653759956359863,
+          23.690834045410156,
+          -44.736846923828125,
+          2.1512510776519775,
+          -21.058399200439453,
+          -53.39767837524414,
+          -40.572654724121094,
+          -71.83860778808594
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.41255187988281,
+        "std": 337.9632568359375,
+        "rms": 348.1854553222656,
+        "first_values": [
+          -493.77984619140625,
+          -256.45526123046875,
+          378.2780456542969,
+          152.9674835205078,
+          235.14381408691406,
+          -1465.262939453125,
+          236.9012908935547,
+          -242.16204833984375
+        ]
+      }
+    },
+    "native8.repeat": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.5996993184089661,
+        "std": 34.77627182006836,
+        "rms": 34.77861022949219,
+        "first_values": [
+          10.342934608459473,
+          23.913225173950195,
+          -44.54924774169922,
+          2.4066381454467773,
+          -21.62086296081543,
+          -54.0173225402832,
+          -41.17356491088867,
+          -71.93903350830078
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.40779876708984,
+        "std": 338.4850769042969,
+        "rms": 348.6903076171875,
+        "first_values": [
+          -493.97149658203125,
+          -246.30628967285156,
+          374.91204833984375,
+          148.0061798095703,
+          229.65643310546875,
+          -1464.81982421875,
+          225.40475463867188,
+          -251.98959350585938
+        ]
+      }
+    },
+    "native8.sync": {
+      "video": {
+        "shape": [
+          1,
+          64,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": 0.6102411150932312,
+        "std": 34.87611770629883,
+        "rms": 34.87862014770508,
+        "first_values": [
+          10.653759956359863,
+          23.690834045410156,
+          -44.736846923828125,
+          2.1512510776519775,
+          -21.058399200439453,
+          -53.39767837524414,
+          -40.572654724121094,
+          -71.83860778808594
+        ]
+      },
+      "audio": {
+        "shape": [
+          1,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "mean": -84.41255187988281,
+        "std": 337.9632568359375,
+        "rms": 348.1854553222656,
+        "first_values": [
+          -493.77984619140625,
+          -256.45526123046875,
+          378.2780456542969,
+          152.9674835205078,
+          235.14381408691406,
+          -1465.262939453125,
+          236.9012908935547,
+          -242.16204833984375
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Not the formal length-27570 sequence or full generation",
+    "Normal/repeat native outputs differ",
+    "Input mutation metadata not yet returned",
+    "Extra synchronization produced the same reported first-output statistics; no root-cause claim"
+  ]
+}

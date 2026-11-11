@@ -1,0 +1,21 @@
+{
+  "evidence_source": "user_pasted_DCU_execution_output",
+  "status": "FLASH_SDPA_PROBE_PASS",
+  "torch": "2.9.0",
+  "hip": "6.3.26093",
+  "flash_attn": "2.6.1+das.opt1.dtk2604.torch290",
+  "dtype": "bfloat16",
+  "head_dim": 128,
+  "cases": [
+    {"heads": 8, "length": 256, "sampled_max_abs_error": 0.001953125},
+    {"heads": 56, "length": 27570, "sampled_max_abs_error": 0.00024414062}
+  ],
+  "math_comparison_query_positions": ["first", "middle", "last"],
+  "rtol": 0.02,
+  "atol": 0.001,
+  "full_flash_output_finite": true,
+  "library_selection_env": "FA_SO_PATH",
+  "env_saved_to_AFS": true,
+  "reference_video_completed": true,
+  "video_similarity_verified": false
+}

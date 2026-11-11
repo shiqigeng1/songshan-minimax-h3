@@ -1,0 +1,76 @@
+{
+  "status": "SILU_FP32_VALIDATED_H3_END_TO_END_NOT_RUN",
+  "correctness_native": 12,
+  "correctness_nine": 12,
+  "max_abs_vs_native": 9.5367431640625e-07,
+  "benchmark_cases": 5,
+  "faster_cases": 2,
+  "comparison": [
+    {
+      "key": "n1_d5376_scale1",
+      "rows": 1,
+      "channels": 5376,
+      "native_a_us": 7.820086666666667,
+      "native_b_us": 7.859653333333334,
+      "native_pooled_median_us": 7.8254866666666665,
+      "nine_jit_us": 44.69257666666667,
+      "nine_plan_us": 10.453193333333333,
+      "speedup": 0.7486216333254463,
+      "native_drift_percent": 0.5059619970111173
+    },
+    {
+      "key": "n4_d5376_scale1",
+      "rows": 4,
+      "channels": 5376,
+      "native_a_us": 7.691186666666667,
+      "native_b_us": 7.717186666666667,
+      "native_pooled_median_us": 7.71307,
+      "nine_jit_us": 44.950676666666666,
+      "nine_plan_us": 10.565593333333334,
+      "speedup": 0.730017686339117,
+      "native_drift_percent": 0.33804926504621413
+    },
+    {
+      "key": "n17_d5376_scale1",
+      "rows": 17,
+      "channels": 5376,
+      "native_a_us": 7.732853333333334,
+      "native_b_us": 7.709783333333334,
+      "native_pooled_median_us": 7.7218366666666665,
+      "nine_jit_us": 44.53644666666666,
+      "nine_plan_us": 10.46386,
+      "speedup": 0.7379529797480725,
+      "native_drift_percent": -0.2983374830161867
+    },
+    {
+      "key": "n128_d5376_scale1",
+      "rows": 128,
+      "channels": 5376,
+      "native_a_us": 15.994006666666666,
+      "native_b_us": 16.21731,
+      "native_pooled_median_us": 16.10714,
+      "nine_jit_us": 44.34367666666667,
+      "nine_plan_us": 11.965263333333334,
+      "speedup": 1.3461584213636195,
+      "native_drift_percent": 1.3961688149019214
+    },
+    {
+      "key": "n1024_d5376_scale1",
+      "rows": 1024,
+      "channels": 5376,
+      "native_a_us": 103.70072666666667,
+      "native_b_us": 103.25333,
+      "native_pooled_median_us": 103.47702833333334,
+      "nine_jit_us": 67.86340333333334,
+      "nine_plan_us": 68.40681,
+      "speedup": 1.5126714479645134,
+      "native_drift_percent": -0.43143059942556405
+    }
+  ],
+  "source_sha256": {
+    "silu_nt.py": "132889ecbe6c48f1add472df35eb3d345bdf91450b5a82a44dc76bf8405284bf",
+    "benchmark_silu.py": "d2adc9c6b8cf37d150d589c787bc51ac7bdbce7b5d58e6a20a8ed62d5672b16f",
+    "run_silu.sh": "42d59ec9bce2eb92ef43240d007486d6c82af791fe36bc47556a8f8525172c5c",
+    "analyze_silu.py": "fc690aabc8d1ff58e5c99336c6bc3e06f2d6057110b24af5b1de0c322354eb88"
+  }
+}

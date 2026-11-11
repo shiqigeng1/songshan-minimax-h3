@@ -1,0 +1,93 @@
+[input] b97c3487ca35da0c803fba3787cf2b7f936d3d4595548ae5b7b576c19934be54
+[pixels] PyTorch reference frame=0 mean=115.208 std=88.506
+[pixels] PyTorch reference frame=62 mean=107.489 std=93.042
+[pixels] PyTorch reference frame=123 mean=108.535 std=93.534
+[pixels] InfiniLM candidate frame=0 mean=94.455 std=59.762
+[pixels] InfiniLM candidate frame=62 mean=70.643 std=45.931
+[pixels] InfiniLM candidate frame=123 mean=81.841 std=51.204
+[pixels] InfiniLM Nov09 frame=0 mean=118.057 std=78.330
+[pixels] InfiniLM Nov09 frame=62 mean=74.587 std=55.601
+[pixels] InfiniLM Nov09 frame=123 mean=95.171 std=66.744
+[native sampled A/B] frame=0 equal=False MAE=38.131418
+[native sampled A/B] frame=62 equal=False MAE=21.085294
+[native sampled A/B] frame=123 equal=False MAE=28.167929
+[preview] <H3_WORK_HOME>/checks/fl2va-diagnose-20261111T134713Z-1034303/preview.jpg
+
+[configuration] fl2va-reference-20261111T105437Z
+[model] Loading modular components from: /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Loading fl2va weights from:       /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Backend: legacy PyTorch
+[model] Qwen3-VL devices: [0, 1, 2, 3]
+[model] H3 transformer devices: [4, 5, 6, 7]
+[model] Routing legacy proj_out output to cuda:4
+[model] Routing legacy audio_proj_out output to cuda:4
+[model] Diffusers execution device: cuda:1
+  text:            A dog falls asleep
+  first frame:     True
+  last frame:      False
+  frames:          124
+  steps:           50
+  backend:         legacy PyTorch
+
+[configuration] fl2va-candidate-20261111T085622Z
+[model] Loading modular components from: /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Loading fl2va weights from:       /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Backend: InfiniLM
+[model] InfiniLM TP devices: [0, 1, 2, 3, 4, 5, 6, 7]
+[model] Diffusers execution device: cuda:0
+  text:            A dog falls asleep
+  first frame:     True
+  last frame:      False
+  frames:          124
+  steps:           50
+  backend:         InfiniLM
+
+[configuration] fl2va-songshan-20261109T123355Z
+[model] Loading modular components from: /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Loading fl2va weights from:       /public/home/aclsylqidf/shared/MiniMax-H3/diffusers
+[model] Backend: InfiniLM
+[model] InfiniLM TP devices: [0, 1, 2, 3, 4, 5, 6, 7]
+[model] Diffusers execution device: cuda:0
+  text:            A dog falls asleep
+  first frame:     True
+  last frame:      False
+  frames:          124
+  steps:           50
+  backend:         InfiniLM
+
+[source excerpt] <H3_WORK_HOME>/build-state-gfx936-v8/gfx936-build-kit/InfiniLM/csrc/models/minimax_h3/minimax_h3_transformer.cpp
+    const infinicore::Tensor &adaln_indices,
+    const std::shared_ptr<infinicore::nn::RoPE> &rope,
+    const infinicore::Tensor &position_ids,
+    const std::optional<infinicore::Tensor> &rotary_cos_sin_cache) const {
+    auto modulation = adaln_proj_->forward(temb)->view(
+        {temb->size(0) * H3_MODALITY_COUNT, 6 * hidden_size_});
+    auto token_modulation = gather_rows(modulation, adaln_indices)->unsqueeze(0);
+    auto shift_msa = token_modulation->narrow({{2, 0, hidden_size_}});
+    auto scale_msa = token_modulation->narrow({{2, hidden_size_, hidden_size_}});
+    auto gate_msa = token_modulation->narrow({{2, 2 * hidden_size_, hidden_size_}});
+    auto shift_mlp = token_modulation->narrow({{2, 3 * hidden_size_, hidden_size_}});
+    auto scale_mlp = token_modulation->narrow({{2, 4 * hidden_size_, hidden_size_}});
+    auto gate_mlp = token_modulation->narrow({{2, 5 * hidden_size_, hidden_size_}});
+
+    auto normalized = norm1_->forward(hidden_states);
+    normalized = apply_adaln(normalized, scale_msa, shift_msa);
+    auto attention_output = attn_->forward(normalized, rope, position_ids, rotary_cos_sin_cache);
+    auto output = infinicore::Tensor(at::addcmul(
+        hidden_states.tensor(), gate_msa.tensor(), attention_output.tensor()));
+
+    normalized = norm2_->forward(output);
+    normalized = apply_adaln(normalized, scale_mlp, shift_mlp);
+    auto mlp_output = ff_->forward(normalized);
+    output = infinicore::Tensor(at::addcmul(
+        output.tensor(), gate_mlp.tensor(), mlp_output.tensor()));
+    return output;
+}
+
+MiniMaxH3TimeEmbedder::MiniMaxH3TimeEmbedder(size_t input_dim,
+                                             size_t hidden_size,
+                                             size_t output_dim,
+                                             const infinicore::Device &device)
+    : input_dim_(input_dim) {
+
+Diagnostic results: <H3_WORK_HOME>/checks/fl2va-diagnose-20261111T134713Z-1034303

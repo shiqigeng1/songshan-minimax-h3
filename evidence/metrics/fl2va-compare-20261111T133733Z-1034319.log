@@ -1,0 +1,13 @@
+[task] reference_fl2va: using existing result: <H3_WORK_HOME>/outputs/fl2va-reference-20261111T105437Z.mp4
+
+[task] infinilm_fl2va: using existing result: <H3_WORK_HOME>/outputs/fl2va-candidate-20261111T085622Z.mp4
+
+[compare] FL2VA: decoding outputs
+
+[result] MiniMax-H3 video comparison
+
+  FL2VA
+    Size:         PASS (PyTorch 768x928, InfiniLM 768x928)
+    Length:       PASS (PyTorch 124 frames, InfiniLM 124 frames)
+    Average SSIM: 8.997%
+Comparison results: <H3_WORK_HOME>/checks/fl2va-compare-20261111T133733Z-1034319

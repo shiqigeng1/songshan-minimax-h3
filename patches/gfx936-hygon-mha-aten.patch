@@ -1,0 +1,64 @@
+--- a/xmake.lua
++++ b/xmake.lua
+@@ -1055,7 +1055,13 @@
+         -- Keep the platform-specific implementation under each op's hygon/ folder.
+         add_files("src/infinicore/adaptor/flash_attn/hygon/*.cc")
+     else
+-        remove_files("src/infinicore/ops/*/hygon/*.cc")
++        for _, source in ipairs(os.files("src/infinicore/ops/*/hygon/*.cc")) do
++            local aten_mha = has_config("hygon-dcu") and has_config("aten")
++                and path.filename(source) == "mha_flashattn_hygon.cc"
++            if not aten_mha then
++                remove_files(source)
++            end
++        end
+     end
+     if has_config("infiniops") and not has_config("nv-gpu")
+         and not has_config("cambricon-mlu") then
+--- a/src/infinicore/ops/multi_head_attention/mha.cc
++++ b/src/infinicore/ops/multi_head_attention/mha.cc
+@@ -1,5 +1,7 @@
+ #include "infinicore/ops/mha.hpp"
+ #include "../../utils.hpp"
++
++#include <stdexcept>
+ 
+ namespace infinicore::op {
+ 
+@@ -13,8 +15,16 @@
+                                        float scale,
+                                        bool is_causal) {
+     INFINICORE_ASSERT_TENSORS_SAME_DEVICE(out, q, k, v);
+-    INFINICORE_GRAPH_OP_DISPATCH(out->device().getType(),
+-                                 out, q, k, v, alibi_slopes, scale, is_causal);
++    const auto device_type = out->device().getType();
++    const auto plan = plan_dispatcher().lookup(device_type);
++    const auto run = run_dispatcher().lookup(device_type);
++    const auto cleanup = cleanup_dispatcher().lookup(device_type);
++    if (plan == nullptr || run == nullptr || cleanup == nullptr) {
++        throw std::runtime_error("MultiheadAttention backend is not registered for this device");
++    }
++    planned_meta_ = plan(out, q, k, v, alibi_slopes, scale, is_causal);
++    runner_ = run;
++    deleter_ = cleanup;
+ }
+ 
+ void MultiheadAttention::execute(Tensor out,
+--- a/src/infinicore/ops/multi_head_attention/hygon/mha_flashattn_hygon.cc
++++ b/src/infinicore/ops/multi_head_attention/hygon/mha_flashattn_hygon.cc
+@@ -1,7 +1,7 @@
+-#if defined(ENABLE_HYGON_API) && defined(ENABLE_FLASH_ATTN)
++// Dense Hygon attention uses the ATen adaptor and has no FlashAttention dependency.
++#if defined(ENABLE_HYGON_API) && defined(ENABLE_ATEN)
+ #include "infinicore/ops/mha.hpp"
+ 
+-#include "../../../adaptor/flash_attn/hygon/flash_attn_hygon.hpp"
+ #include "infinicore/adaptor/aten_adaptor.hpp"
+ 
+ #include <limits>
+@@ -103,4 +103,4 @@
+ }();
+ 
+ } // namespace infinicore::op::mha_impl::flashattn
+-#endif // ENABLE_HYGON_API && ENABLE_FLASH_ATTN
++#endif // ENABLE_HYGON_API && ENABLE_ATEN

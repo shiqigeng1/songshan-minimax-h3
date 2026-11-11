@@ -1,0 +1,6 @@
+InfiniCore f32e2fbb2a9b2ca912b5711f4f3836c403196a74
+InfiniLM 65deb91f840ebaef752d028fad2f3217ce0950f4
+xmake-repo 4b60b70e44cf1908dd367d019cf7471eb7362dd8
+xmake 3.0.5
+Boost 1.89.0
+pybind11 3.0.1

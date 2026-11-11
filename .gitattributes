@@ -1,0 +1,13 @@
+* -text
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.patch text eol=lf
+*.docx -text
+*.pdf -text
+*.mp4 -text
+*.jpg -text
+upstream/** -text
+dependencies/xmake-repo/** -text
